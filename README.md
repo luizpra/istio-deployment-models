@@ -4,17 +4,20 @@ Testing istio external control plane deployment, reference [link](https://prelim
 
 ## Prepare the environment
 
+Go to [terraform folder](tf) folder:
+```sh
+cd tf
+```
+Spin up the k8s clusters with `terraform` cli:
+```sh
+terraform init
+terraform apply
+```
 Export environment variables
 ```sh
 export CTX_EXTERNAL_CLUSTER=$(terraform output -raw  external-context)
 export CTX_REMOTE_CLUSTER=$(terraform output -raw  remote-one-context)
 export REMOTE_CLUSTER_NAME=$(terraform output -raw  remote-two-context)
-
-
-
-export ISTIO_HOME=~/dev/istio-1.18.0/bin/
-export EXTERNAL_ISTIOD_ADDR=172.23.255.200
-export SSL_SECRET_NAME=NONE
 ```
 
 ## External cluster
