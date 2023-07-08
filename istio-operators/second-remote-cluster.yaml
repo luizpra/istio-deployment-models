@@ -1,0 +1,12 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: external-istiod
+spec:
+  profile: remote
+  values:
+    global:
+      istioNamespace: external-istiod
+      remotePilotAddress: 172.23.255.200
+    istiodRemote:
+      injectionPath: /inject/cluster/remote-two/net/network2
